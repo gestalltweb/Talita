@@ -13,7 +13,7 @@ const groups = [
 ];
 function PhotoFrame({photo,crop,alt}:{photo:Photo;crop:number[];alt:string}){
  const [x,y,w,h]=crop;
- return <div className="proof-crop" style={{aspectRatio:w+"/"+h}}><img src={"/assets/resultados/"+photo.name+".webp"} alt={alt} loading="lazy" decoding="async" style={{width:photo.width/w*100+"%",height:photo.height/h*100+"%",left:-x/w*100+"%",top:-y/h*100+"%"}} onError={e=>{e.currentTarget.style.visibility="hidden";e.currentTarget.parentElement?.setAttribute("data-media-unavailable","true")}}/></div>
+ return <div className="proof-crop" style={{aspectRatio:w+"/"+h,maxWidth:w,marginInline:"auto"}}><img src={"/assets/resultados/"+photo.name+".webp"} alt={alt} loading="lazy" decoding="async" style={{width:photo.width/w*100+"%",height:photo.height/h*100+"%",left:-x/w*100+"%",top:-y/h*100+"%"}} onError={e=>{e.currentTarget.style.visibility="hidden";e.currentTarget.parentElement?.setAttribute("data-media-unavailable","true")}}/></div>
 }
 function Comparison({entry,title}:{entry:Entry;title:string}){
  return <div className={"proof-comparison"+(entry.photos.length===2?" proof-comparison--pair":"")}>{entry.photos.map(name=>{const photo=assets.find(a=>a.name===name)!;return <div className="proof-panels" key={name}>{photo.crops.map((crop,i)=><PhotoFrame key={i} photo={photo} crop={crop} alt={title+" — "+entry.caption+" — imagem "+(i+1)}/>)}</div>})}</div>
@@ -34,3 +34,4 @@ export function ResultsContext(){
  <dialog ref={dialog} className="proof-dialog" onClose={()=>setActive(null)} onClick={e=>{if(e.target===e.currentTarget)setActive(null)}} aria-label={active?.title??"Fotografia ampliada"}><div className="proof-dialog-inner"><button className="proof-close" onClick={()=>setActive(null)} autoFocus>Fechar ×</button>{active&&<><p>{active.title} · {active.entry.caption}</p><Comparison entry={active.entry} title={active.title}/></>}</div></dialog>
  </section>
 }
+

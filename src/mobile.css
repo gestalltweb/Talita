@@ -1,0 +1,92 @@
+/* Responsive editorial layout: content controls height, including in landscape. */
+.nav-toggle{display:none}
+section[id]{scroll-margin-top:88px}
+@media(max-width:1000px){
+  .proof-chapter{grid-template-columns:minmax(0,1fr)}
+  .proof-copy{position:static;max-width:65ch;margin-bottom:1rem}
+  .proof-copy h3{overflow-wrap:anywhere}
+  .proof-gallery{width:100%;max-width:760px;margin-inline:auto;grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:860px){
+  html{overflow-x:clip}
+  .site-nav{height:auto;min-height:64px;padding:env(safe-area-inset-top) max(1rem,env(safe-area-inset-right)) 0 max(1rem,env(safe-area-inset-left));grid-template-columns:minmax(0,1fr) auto auto;gap:.6rem;background:var(--paper);color:var(--wine);mix-blend-mode:normal;border-bottom:1px solid #4a102422}
+  .brand{font-size:1.2rem}
+  .nav-toggle{display:block;min-height:48px;padding:.6rem;font-size:.875rem;cursor:pointer}
+  .nav-book{align-items:center;min-height:48px;font-size:.875rem;text-transform:none;gap:.3rem}
+  .nav-book:before{content:none}
+  .nav-links{position:absolute;top:100%;left:0;right:0;padding:1rem max(1.25rem,env(safe-area-inset-left));background:var(--paper);border-bottom:1px solid #4a102433;font-size:1rem;letter-spacing:0;text-transform:none;box-shadow:0 12px 20px #16131312;max-height:calc(100svh - 80px);overflow:auto}
+  .nav-links--open{display:grid;gap:0}
+  .nav-links a{display:flex;align-items:center;min-height:48px;border-bottom:1px solid #4a102422}
+  a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+  .hero-shell .scroll-scrub__stage{position:absolute;height:100%;inset:0}
+  .hero-shell .scroll-scrub__story{margin-top:0}
+  .hero-shell .scroll-scrub__chapter{min-height:0!important}
+  .hero-shell .scroll-scrub__chapter-pin{position:relative;min-height:max(660px,100svh);padding:8rem max(1.25rem,env(safe-area-inset-right)) calc(8rem + env(safe-area-inset-bottom)) max(1.25rem,env(safe-area-inset-left));align-items:flex-end}
+  .hero-shell .scroll-scrub__copy{max-width:36rem;width:100%;margin:0}
+  .hero-shell .scroll-scrub__copy:before{inset:-5rem -1.25rem -8rem;background:linear-gradient(0deg,#240915f2 0%,#240915d9 65%,transparent)}
+  .hero-shell .scroll-scrub__title{font-size:clamp(2.75rem,11vw,4.5rem);line-height:1.02;letter-spacing:-.055em;max-width:13ch}
+  .hero-shell .scroll-scrub__body{font-size:1rem;line-height:1.6}
+  .hero-shell .scroll-scrub__kicker{font-size:.75rem;letter-spacing:.08em}
+  .hero-shell .scroll-scrub__tags li{font-size:.8rem;letter-spacing:.025em}
+  .hero-cta{bottom:calc(1.25rem + env(safe-area-inset-bottom));font-size:.8rem;max-width:36rem;padding-right:3rem}
+  .manifesto,.specialties,.approach,.laser,.results,.about,.insta{padding:4.5rem max(1.25rem,env(safe-area-inset-right)) 4.5rem max(1.25rem,env(safe-area-inset-left));min-height:0}
+  .manifesto h2,.specialties h2,.treatments h2,.approach h2,.about h2,.results-context h2,.insta h2{font-size:clamp(2.4rem,10.5vw,5.25rem);line-height:1.04;letter-spacing:-.055em;overflow-wrap:anywhere}
+  .micro{font-size:.75rem;margin-bottom:1rem}
+  .manifesto-copy{margin:2.5rem 0 0;max-width:55ch}
+  .manifesto-copy p{font-size:1.05rem;line-height:1.65}
+  .orbit{position:relative;inset:auto;width:160px;margin:2.5rem 0 0 auto;aspect-ratio:1}
+  .orbit span{font-size:3rem}
+  .orbit small{font-size:.625rem;bottom:23%}
+  .specialties{gap:2.5rem}
+  .specialties-image{width:100%;align-self:stretch;height:auto;max-height:none;aspect-ratio:4/5}
+  .specialties-image img{position:absolute;inset:0}
+  .specialties li{grid-template-columns:2rem minmax(0,1fr)}
+  .specialties li h3{font-size:1.35rem;line-height:1.3}
+  .specialties li p{margin-top:.75rem}
+  .specialties-image figcaption,.approach-photo span{font-size:.75rem;right:1rem;text-shadow:0 1px 6px #000}
+  .treatments{padding-top:4.5rem}
+  .treatments header{padding-bottom:3rem}
+  .treatments header p{max-width:100%;margin-top:1.5rem}
+  .treatments-main{height:auto;aspect-ratio:4/5;max-height:700px}
+  .treatment-list{padding:2rem 1.25rem 3rem}
+  .treatment-list a{grid-template-columns:1.5rem minmax(0,1fr) 1rem;font-size:1.125rem;gap:.4rem}
+  .approach-photo{height:auto;aspect-ratio:4/5;margin-bottom:3rem}
+  .approach-photo img{position:absolute;inset:0}
+  .approach h2,.about h2{margin-bottom:2rem}
+  .laser h2{font-size:clamp(5rem,20vw,9rem);line-height:.95;margin:2rem 0 3rem}
+  .laser-copy p{font-size:1.125rem;line-height:1.6}
+  .results-context .results-intro{margin-bottom:2rem}
+  .results-context h2{margin:1.25rem 0 2rem}
+  .results header span,.proof-disclaimer,.proof-copy .proof-note,.proof-sources{font-size:.9rem!important;color:#c5b9b6;line-height:1.65}
+  .proof-index{grid-template-columns:minmax(0,1fr)}
+  .proof-index a{grid-template-columns:1.5rem minmax(0,1fr) 1rem;gap:.5rem;overflow-wrap:anywhere}
+  .proof-chapter{display:block;padding:3rem 0;scroll-margin-top:88px}
+  .proof-copy{margin-bottom:2rem}
+  .proof-copy h3{font-size:clamp(1.8rem,7.5vw,3rem);line-height:1.15;letter-spacing:-.035em;margin-bottom:2rem;hyphens:auto}
+  .proof-copy p:not(.proof-kicker){font-size:1rem;line-height:1.7}
+  .proof-kicker,.proof-copy h4{font-size:.8rem;letter-spacing:.06em}
+  .proof-note{margin-top:1rem}
+  .proof-cta{font-size:1rem;min-height:48px}
+  .proof-gallery{grid-template-columns:minmax(0,1fr);gap:2rem;max-width:460px}
+  .proof-comparison--pair{grid-template-columns:minmax(0,1fr)}
+  .proof-figure figcaption{font-size:.875rem;color:#c5b9b6}
+  .proof-zoom{min-height:44px;display:flex;align-items:center;justify-content:flex-end;font-size:.75rem}
+  .proof-dialog{max-width:calc(100% - 1rem);max-height:calc(100dvh - 1rem)}
+  .proof-dialog-inner{padding:1rem .5rem calc(1rem + env(safe-area-inset-bottom))}
+  .proof-dialog-inner>p{padding:1rem .5rem}
+  .proof-dialog .proof-comparison--pair{grid-template-columns:minmax(0,1fr)}
+  .proof-sources summary{padding:.75rem 0;min-height:48px}
+  .about{gap:2.5rem}
+  .about-portrait{width:150px;height:150px;align-self:flex-start}
+  .about-portrait span{left:.5rem;bottom:.5rem;text-shadow:0 1px 4px #000}
+  .insta h2{margin-bottom:2rem}
+  .footer-image{height:auto;aspect-ratio:4/3}
+  .footer-call{position:relative;margin:-2rem 1.25rem 0;padding:2rem 1.25rem}
+  .footer-call h2{font-size:clamp(1.9rem,8vw,4rem);line-height:1.1;letter-spacing:-.04em;margin-top:1rem}
+  .footer-call a{margin-top:2rem;min-height:48px}
+  .footer-bottom{min-height:0;padding:3rem 1.25rem 2rem;gap:2rem;grid-template-columns:minmax(0,1fr)}
+  .footer-bottom nav{gap:0}
+  .footer-bottom nav a{min-height:44px;display:flex;align-items:center}
+  .footer-bottom address{text-align:left}
+}
+
